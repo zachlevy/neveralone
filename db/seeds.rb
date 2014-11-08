@@ -6,6 +6,21 @@
 #   cities = City.create([{ name: 'Chicago' }, { name: 'Copenhagen' }])
 #   Mayor.create(name: 'Emanuel', city: cities.first)
 
+feels = [
+	"Depressed",
+	"Anxious",
+	"Stressed",
+	"Angry",
+	"Lonely"
+]
+
+feels.each do |feel|
+	Feel.create(
+		name:feel
+	 	)
+end
+
+
 
 locations = [
 	["Therapeutic Shiatsu: Catherine Ziliotto","39 Alvin ave, Toronto",43.670765,-79.386606,],
