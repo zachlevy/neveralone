@@ -1,6 +1,8 @@
 class CheckinsController < ApplicationController
   before_action :set_checkin, only: [:show, :edit, :update, :destroy]
 
+  def ip() request.env['HTTP_X_FORWARDED_FOR'] || request.remote_ip end
+
   # GET /checkins
   # GET /checkins.json
   def index
@@ -14,7 +16,7 @@ class CheckinsController < ApplicationController
 
   # GET /checkins/new
   def new
-    currentLocation = Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip)
+    currentLocation = Geokit::Geocoders::MultiGeocoder.geocode(ip())
     puts currentLocation
     
     @checkin = Checkin.new
