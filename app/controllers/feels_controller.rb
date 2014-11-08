@@ -15,7 +15,7 @@ class FeelsController < ApplicationController
 
   # GET /feels/new
   def new
-    #add_checkins() # prepopulate checkins for a location
+    add_checkins() # prepopulate checkins for a location
     @feel = Feel.new
   end
 
