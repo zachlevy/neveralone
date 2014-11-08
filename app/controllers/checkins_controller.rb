@@ -12,6 +12,7 @@ class CheckinsController < ApplicationController
   # GET /checkins/1
   # GET /checkins/1.json
   def show
+    redirect_to new_checkin_path()
   end
 
   # GET /checkins/new

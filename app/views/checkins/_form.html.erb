@@ -10,20 +10,30 @@
       </ul>
     </div>
   <% end %>
+    <span class="h1">
+      <% @checkins.each do |checkin| %>
+        <span id="feel-<%= checkin[0] %>" class="checkin-count hidden"><%= checkin[1] %></span>
+      <% end %>
+    </span>
+    <span class="h2">
+      people felt
+    </span>
+    <div class="field">
+      <%= f.select :feel_id, Feel.all.collect{|p| [p.name, p.id] } , {prompt: "-- Select a Feel --"}, {class: 'form-control'} %>
+    </div>
+    <span class="h2">at </span>
+    <span class="h4"><%= @locations[0].name %></span>
 
-  <h1><% @checkins.each do |checkin| %>
-      <span id="feel-<%= checkin[0] %>" class="checkin-count hidden"><%= checkin[1] %></span>
-    <% end %></h1>
-  <h2><%= @locations[0].name %></h2>
+
   <div class="field">
-    <%= f.select :feel_id, Feel.all.collect{|p| [p.name, p.id] } , {prompt: "-- Select a Feel --"}, {class: 'form-control'} %>
     <%= f.hidden_field :location_id, :value=>@locations[0].id %>
   </div>
 
   <div class="field">
     <%= f.check_box :vote %> Was this location helpful?
   </div>
+
   <div class="actions">
-    <%= f.submit %>
+    <%= f.submit "Checkin", :class=>"btn btn-primary btn-lg btn-block" %>
   </div>
 <% end %>
