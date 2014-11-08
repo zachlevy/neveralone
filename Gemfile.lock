@@ -28,6 +28,8 @@ GEM
       thread_safe (~> 0.1)
       tzinfo (~> 1.1)
     arel (5.0.1.20140414130214)
+    bootstrap-sass (3.3.0.1)
+      sass (~> 3.2)
     builder (3.2.2)
     coffee-rails (4.0.1)
       coffee-script (>= 2.2.0)
@@ -38,11 +40,14 @@ GEM
     coffee-script-source (1.8.0)
     erubis (2.7.0)
     execjs (2.2.2)
+    font-awesome-sass (4.0.3.1)
+      sass (~> 3.2)
     geokit (1.9.0)
       multi_json (>= 1.3.2)
     geokit-rails (2.0.1)
       geokit (~> 1.5)
       rails (>= 3.0)
+    google-analytics-rails (0.0.5)
     hike (1.2.3)
     i18n (0.6.11)
     jbuilder (2.2.4)
@@ -106,8 +111,6 @@ GEM
     treetop (1.4.15)
       polyglot
       polyglot (>= 0.3.1)
-    turbolinks (2.5.1)
-      coffee-rails
     tzinfo (1.2.2)
       thread_safe (~> 0.1)
     uglifier (2.5.3)
@@ -118,9 +121,12 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  bootstrap-sass (~> 3.3.0)
   coffee-rails (~> 4.0.0)
+  font-awesome-sass
   geokit
   geokit-rails
+  google-analytics-rails
   jbuilder (~> 2.0)
   jquery-rails
   pg
@@ -128,5 +134,4 @@ DEPENDENCIES
   sass-rails (~> 4.0.3)
   sdoc (~> 0.4.0)
   spring
-  turbolinks
   uglifier (>= 1.3.0)
