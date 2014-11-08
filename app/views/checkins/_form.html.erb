@@ -11,13 +11,16 @@
     </div>
   <% end %>
 
+  <h1><% @checkins.each do |checkin| %>
+      <span id="feel-<%= checkin[0] %>" class="checkin-count hidden"><%= checkin[1] %></span>
+    <% end %></h1>
+  <h2><%= @locations[0].name %></h2>
   <div class="field">
-    <%= f.label :location_id %><br>
-    <%= f.text_field :location_id %>
+    <%= f.select :feel_id, Feel.all.collect{|p| [p.name, p.id] } , {prompt: "-- Select a Feel --"}, {class: 'form-control'} %>
   </div>
+
   <div class="field">
-    <%= f.label :feel_id %><br>
-    <%= f.text_field :feel_id %>
+    <%= f.hidden_field :location_id, :value=>@locations[0].id %>
   </div>
   <div class="actions">
     <%= f.submit %>

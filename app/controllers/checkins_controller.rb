@@ -20,19 +20,26 @@ class CheckinsController < ApplicationController
     #puts "==== START start ===="
     #puts @start.inspect
     #puts "==== END start ===="
-    
+
     currentLocation = Geokit::Geocoders::MultiGeocoder.geocode(ip())
     puts "==== START currentLocation ===="
     puts currentLocation.inspect
     puts "==== END currentLocation ===="
 
-    @closest = Location.closest(:origin => [43.654301,-79.379601])
-    puts "==== START closest ===="
-    puts @closest.inspect
-    puts "==== END start ===="
+    @locations = Location.closest(:origin => [43.654301,-79.379601])
+    puts "==== START locations ===="
+    puts @locations[0].inspect
+    puts "==== END locations ===="
 
     puts currentLocation
-    
+
+    #get checkins count for a location grouped by feel
+    @checkins = Checkin.where(location_id:@locations[0].id).group(:feel_id).count
+    puts "==== START checkins ===="
+    puts @checkins
+    puts "==== END checkins ===="
+    @checkinsJSON = @checkins.to_json
+
     @checkin = Checkin.new
   end
 

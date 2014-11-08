@@ -1,4 +1,5 @@
 class FeelsController < ApplicationController
+  include FeelsHelper
   before_action :set_feel, only: [:show, :edit, :update, :destroy]
 
   # GET /feels
@@ -14,6 +15,7 @@ class FeelsController < ApplicationController
 
   # GET /feels/new
   def new
+    #add_checkins() # prepopulate checkins for a location
     @feel = Feel.new
   end
 
