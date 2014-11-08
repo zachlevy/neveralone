@@ -14,6 +14,9 @@ class CheckinsController < ApplicationController
 
   # GET /checkins/new
   def new
+    currentLocation = Geokit::Geocoders::MultiGeocoder.geocode(request.remote_ip)
+    puts currentLocation
+    
     @checkin = Checkin.new
   end
 
