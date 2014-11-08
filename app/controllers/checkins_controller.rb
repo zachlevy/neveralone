@@ -17,6 +17,15 @@ class CheckinsController < ApplicationController
   # GET /checkins/new
   def new
     currentLocation = Geokit::Geocoders::MultiGeocoder.geocode(ip())
+    puts "==== START currentLocation ===="
+    puts currentLocation.inspect
+    puts "==== END currentLocation ===="
+
+    @closest = Location.closest(:origin => [43.654301,-79.379601])
+    puts "==== START closest ===="
+    puts @closest.inspect
+    puts "==== END start ===="
+
     puts currentLocation
     
     @checkin = Checkin.new
