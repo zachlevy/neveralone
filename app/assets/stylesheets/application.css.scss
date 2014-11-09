@@ -16,3 +16,36 @@
 
 @import "bootstrap-sprockets";
 @import "bootstrap";
+@import url(http://fonts.googleapis.com/css?family=Roboto:400,300);
+
+body {
+	background: url("http://subtlepatterns.com/patterns/congruent_pentagon.png");
+}
+
+h1, h2, h3, h4, h5,
+.h1, .h2, .h3, .h4, p, label, form {
+	font-family: 'Roboto', sans-serif;
+}
+
+.logo {
+	margin: 1.5em;
+}
+.logo-text {
+	color: #5A6198;
+}
+.bnt-success {
+	background-color: #5A6198;
+	border-color: #5A6198;
+}
+
+.location-wrap {
+	background: url("http://lorempixel.com/400/200/nature/");
+	.location {
+		color: #fff;
+		text-shadow: 2px 2px 0px #000;
+	}
+}
+
+.answer {
+
+}

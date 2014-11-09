@@ -11,6 +11,7 @@
 // about supported directives.
 //
 //= require jquery
+//= require bootstrap-sprockets
 //= require jquery_ujs
 //= require turbolinks
 //= require_tree .
@@ -23,5 +24,7 @@ $(function() {
 		console.log("select value: " + value);
 		$(".checkin-count").addClass('hidden');
 		$("#feel-" + value).removeClass('hidden');
+		$(".answer").removeClass("hidden");
 	});
+
 });

@@ -10,30 +10,72 @@
       </ul>
     </div>
   <% end %>
-    <span class="h1">
-      <% @checkins.each do |checkin| %>
-        <span id="feel-<%= checkin[0] %>" class="checkin-count hidden"><%= checkin[1] %></span>
-      <% end %>
-    </span>
-    <span class="h2">
-      people felt
-    </span>
-    <div class="field">
-      <%= f.select :feel_id, Feel.all.collect{|p| [p.name, p.id] } , {prompt: "-- Select a Feel --"}, {class: 'form-control'} %>
+  <div class="row">
+    <div class="col-xs-3">
+      <img src="http://www.mythoughtspot.ca/themes/thought-spot/images/logo_126x54.png" class="img-responsive logo">
     </div>
-    <span class="h2">at </span>
-    <span class="h4"><%= @locations[0].name %></span>
-
-
-  <div class="field">
-    <%= f.hidden_field :location_id, :value=>@locations[0].id %>
+    <div class="col-xs-9">
+      <h1>#NeverAlone</h1>
+    </div>
   </div>
-
-  <div class="field">
-    <%= f.check_box :vote %> Was this location helpful?
+  <div class="row">
+    <div class="col-xs-4">
+      <span class="h1">I feel</span>
+    </div>
+    <div class="col-xs-8">
+      <div class="field">
+        <%= f.select :feel_id, Feel.all.collect{|p| [p.name, p.id] } , {prompt: "-- Select a Feel --"}, {class: 'form-control input-lg'} %>
+      </div>
+    </div>
   </div>
+    
+    
 
-  <div class="actions">
-    <%= f.submit "Checkin", :class=>"btn btn-primary btn-lg btn-block" %>
-  </div>
+
+    <div class="hidden answer">
+      <div class="h2">You're not alone. </div>
+      <div>
+        <span class="h2">
+          <% @checkins.each do |checkin| %>
+            <span id="feel-<%= checkin[0] %>" class="checkin-count hidden"><%= checkin[1] %></span>
+          <% end %>
+        </span>
+
+        <span class="h2">
+          people felt this way near you.
+        </span>
+      </div>
+      <div class="h2">Would you like to try:</div>
+
+      <div class="alert location-wrap alert-dismissible" role="alert">
+        <button type="button" class="close" data-dismiss="alert">
+          <span aria-hidden="true">&times;</span>
+          <span class="sr-only">Close</span>
+        </button>
+        <h3 class="location">
+          <%= @locations[0].name %>
+        </h3>
+      </div>
+
+
+      
+
+      <div class="field">
+        <%= f.hidden_field :location_id, :value=>@locations[0].id %>
+      </div>
+
+      <div class="actions">
+        <%= f.submit "Checkin", :class=>"btn btn-success btn-lg btn-block" %>
+      </div>
+
+      <div class="field">
+        <%= f.check_box :vote %> 
+        <%= f.label :vote, "Was this resource helpful?"%>
+      </div>
+
+    </div>
+
+  
+
+
 <% end %>
